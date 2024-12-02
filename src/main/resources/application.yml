@@ -1,0 +1,33 @@
+server:
+  port: 8080
+#  servlet:
+#    context-path: /api
+
+spring:
+  application:
+    name: todos
+  datasource:
+    url: jdbc:mysql://localhost:3306/todos
+    username: root
+    password: chlgmlwo1!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    user:
+      name: heejae
+      password: heejae
+      roles: ADMIN, USER
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration # security 로그인페이지 제외
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+#  type-aliases-package: com.chj.todos.model
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: DEBUG
